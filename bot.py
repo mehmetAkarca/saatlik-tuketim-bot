@@ -20,8 +20,8 @@ INDIRME_KLASORU = Path('.') / 'indirilenler'
 
 def mail_gonder(dosya_yolu, dosya_adi):
     MAIL_SIFRE = os.environ.get('MAIL_SIFRE') # GitHub Secrets'tan gelecek
-    GONDERICI = "sizin_mailiniz@gmail.com" # Burayı güncelleyin
-    ALICI = "sizin_mailiniz@gmail.com"      # Burayı güncelleyin
+    GONDERICI = "updatestatu.4@gmail.com" # Burayı güncelleyin
+    ALICI = "mhmtakarca@gmail.com"      # Burayı güncelleyin
 
     msg = EmailMessage()
     msg['Subject'] = f'Otomatik Rapor: {dosya_adi}'

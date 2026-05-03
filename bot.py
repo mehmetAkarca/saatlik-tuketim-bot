@@ -43,10 +43,17 @@ tr_tarih = f"{dun.day} {['','Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','T
 hedef_ad = f"proses_saatlik_{dun.year}_{dun.month:02d}_{dun.day:02d}.xlsx"
 hedef = INDIRME_KLASORU / hedef_ad
 
+# --- TARAYICI AYARLARI (GÜÇLENDİRİLMİŞ) ---
 opts = webdriver.ChromeOptions()
-opts.add_argument('--headless') # Sunucu için şart
+opts.add_argument('--headless')
 opts.add_argument('--no-sandbox')
 opts.add_argument('--disable-dev-shm-usage')
+opts.add_argument('--disable-gpu') # Sunucu kararlılığı için eklendi
+opts.add_argument('--disable-extensions')
+opts.add_argument('--proxy-server="direct://"')
+opts.add_argument('--proxy-bypass-list=*')
+opts.add_argument('--start-maximized')
+opts.add_argument('--window-size=1920,1080')
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=opts)
 wait = WebDriverWait(driver, 20)

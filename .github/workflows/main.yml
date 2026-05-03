@@ -2,9 +2,9 @@ name: Gunluk Rapor Botu
 
 on:
   schedule:
-    # Türkiye saatiyle 20:05 (UTC 17:05)
-    - cron: '5 17 * * *'
-  workflow_dispatch: # Manuel çalıştırmak için buton aktif kalır
+    # Türkiye saatiyle 08:35 (UTC 05:35)
+    - cron: '35 5 * * *'
+  workflow_dispatch: # Manuel çalıştırma butonu
 
 jobs:
   build:

@@ -1,0 +1,27 @@
+name: Gunluk Rapor Botu
+
+on:
+  schedule:
+    # Türkiye saatiyle 08:45'te çalışması için (UTC 05:45)
+    - cron: '45 5 * * *'
+  workflow_dispatch: # Manuel çalıştırmak için buton aktif kalır
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodu Cek
+        uses: actions/checkout@v4
+
+      - name: Python Kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Kutphaneleri Yukle
+        run: pip install -r requirements.txt
+
+      - name: Botu Calistir
+        env:
+          MAIL_SIFRE: ${{ secrets.MAIL_SIFRE }}
+        run: python bot.py
